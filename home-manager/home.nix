@@ -74,7 +74,8 @@
     # productivity
     hugo # static site generator
     glow # markdown previewer in terminal
-    go
+    go # Golang
+    darktable # Photo Editing
 
     #btop  # replacement of htop/nmon
     #iotop # io monitoring
