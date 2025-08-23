@@ -31,9 +31,6 @@
     # here is some command line tools I use frequently
     # feel free to add your own or remove some of them
 
-    neofetch
-    nnn # terminal file manager
-
     # archives
     zip
     xz
@@ -77,6 +74,7 @@
     # productivity
     hugo # static site generator
     glow # markdown previewer in terminal
+    go
 
     #btop  # replacement of htop/nmon
     #iotop # io monitoring
