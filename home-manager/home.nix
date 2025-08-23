@@ -25,6 +25,9 @@
   home.username = "ganshun";
   home.homeDirectory = "/Users/ganshun";
 
+  home.file = {
+    ".ssh/config".source = ./sshconfig;
+  };
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
@@ -99,6 +102,45 @@
     enable = true;
     userName = "Gan Shun";
     userEmail = "ganshun@gmail.com";
+  };
+
+  # basic configuration of git, please change to your own
+  programs.vim = {
+    enable = true;
+    plugins = with pkgs.vimPlugins; [ vim-airline vim-go vim-markdown vim-nix];
+    settings = {
+      ignorecase = true;
+      relativenumber = true;
+    };
+    extraConfig = ''
+      set textwidth=80
+      set listchars=tab:»·
+      set list
+
+      set hls is
+
+      autocmd BufWritePre * :%s/\s\+$//e
+
+      set autowrite
+      map <C-n> :cnext<CR>
+      map <C-m> :cprevious<CR>
+      nnoremap <leader>a :cclose<CR>
+
+      " run :GoBuild or :GoTestCompile based on the go file
+      function! s:build_go_files()
+        let l:file = expand('%')
+        if l:file =~# '^\f\+_test\.go$'
+          call go#test#Test(0, 1)
+        elseif l:file =~# '^\f\+\.go$'
+          call go#cmd#Build(0)
+        endif
+      endfunction
+
+      autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+      autocmd FileType go nmap <leader>r  <Plug>(go-run)
+      autocmd FileType go nmap <leader>t  <Plug>(go-test)
+      autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+    '';
   };
 
   # starship - an customizable prompt for any shell

@@ -1,0 +1,18 @@
+Host github.com
+     HostName github.com
+     User     git
+     IdentityFile       ~/.ssh/id_github
+Host ganshun-nr200p
+     Hostname 100.70.190.53
+     Port 22
+     IdentityFile ~/.ssh/id_home
+     User ganshun
+Host 10.10.10.*
+     Port 22
+     IdentityFile ~/.ssh/id_home
+     User ubuntu
+Host 192.168.88.10
+     Port 22
+     IdentityFile ~/.ssh/id_home
+     PreferredAuthentications publickey
+     User ubuntu
