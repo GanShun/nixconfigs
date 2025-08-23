@@ -133,7 +133,7 @@
     enable = true;
     enableCompletion = true;
     # TODO add your custom bashrc here
-    initExtra = ''
+    initContent = ''
       export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
     '';
 
