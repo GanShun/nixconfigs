@@ -2,6 +2,7 @@
 
 {
 
+  imports = [ ./dock ];
   # link the configuration file in current directory to the specified location in home directory
   # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
 
@@ -79,6 +80,7 @@
     glow # markdown previewer in terminal
     go # Golang
     darktable # Photo Editing
+    dockutil
 
     #btop  # replacement of htop/nmon
     #iotop # io monitoring
@@ -95,6 +97,7 @@
     # ethtool
     # pciutils # lspci
     # usbutils # lsusb
+    firefox
   ];
 
   # basic configuration of git, please change to your own
@@ -163,7 +166,6 @@
       env.TERM = "xterm-256color";
       font = {
         size = 12;
-        draw_bold_text_with_bright_colors = true;
       };
       scrolling.multiplier = 5;
       selection.save_to_clipboard = true;
@@ -202,6 +204,23 @@
     };
   };
 
+  local = {
+    dock.username = "${config.home.username}";
+    dock.enable = true;
+    dock.entries = [
+      { path = "/System/Applications/Messages.app/"; }
+      { path = "/System/Applications/Facetime.app/"; }
+      { path = "/Applications/Google Chrome.app/"; }
+      { path = "/Users/ganshun/.nix-profile/Applications/Alacritty.app/"; }
+      { path = "/Users/ganshun/.nix-profile/Applications/Firefox.app/"; }
+      { path = "/Users/ganshun/"; options = "--sort name --view grid --display folder";}
+      # {
+      #   path = "${config.users.users.ganshun.home}/";
+      #   section = "others";
+      #   options = "--sort name --view grid --display folder";
+      # }
+    ];
+  };
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new home Manager release introduces backwards
