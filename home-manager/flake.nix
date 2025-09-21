@@ -18,13 +18,13 @@
       homeConfigurations."ganshun@Gans-MacBook-Air.local" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."aarch64-darwin";
 
-        modules = [ ./home.nix ./darwin];
+        modules = [ ./home ./darwin];
 
       };
       homeConfigurations."ganshun@nixos-desktop" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."x86_64-linux";
 
-        modules = [ ./home.nix ./nixos];
+        modules = [ ./home ./nixos];
 
       };
     };
