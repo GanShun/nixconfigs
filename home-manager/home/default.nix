@@ -26,6 +26,7 @@
 
   home.file = {
     ".ssh/config".source = ./sshconfig;
+    ".ssh/authorized_keys".source = ./authorized_keys;
   };
 
   # Packages that should be installed to the user profile.
