@@ -108,7 +108,7 @@
   # basic configuration of git, please change to your own
   programs.vim = {
     enable = true;
-    plugins = with pkgs.vimPlugins; [ vim-airline vim-go vim-markdown vim-nix];
+    plugins = with pkgs.vimPlugins; [ vim-airline vim-go vim-markdown vim-nix ];
     settings = {
       ignorecase = true;
       relativenumber = true;

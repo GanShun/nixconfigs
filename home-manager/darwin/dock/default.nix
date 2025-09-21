@@ -14,11 +14,10 @@ in
     dock.enable = true;
     dock.entries = [
       { path = "/System/Applications/Messages.app/"; }
-      { path = "/System/Applications/Facetime.app/"; }
       { path = "/Applications/Google Chrome.app/"; }
-      { path = "/Users/ganshun/.nix-profile/Applications/Alacritty.app/"; }
-      { path = "/Users/ganshun/.nix-profile/Applications/Firefox.app/"; }
-      { path = "/Users/ganshun/"; options = "--sort name --view grid --display folder";}
+      { path = "${config.home.homeDirectory}/.nix-profile/Applications/Alacritty.app/"; }
+      { path = "${config.home.homeDirectory}/.nix-profile/Applications/Firefox.app/"; }
+      { path = "${config.home.homeDirectory}/"; options = "--sort name --view grid --display folder";}
       # {
       #   path = "${config.users.users.ganshun.home}/";
       #   section = "others";
@@ -83,7 +82,7 @@ in
         dockutil
       ];
       home.activation = {
-        # This activation script runs after the 'git' program is set up
+        # This activation script runs after the 'dockutil' program is set up
         configDock = lib.hm.dag.entryAfter [ "installPackages" "dockutil" ] ''
         echo >&2 "Setting up the Dock for ${cfg.username}..."
           /bin/sh <<'USERBLOCK'
