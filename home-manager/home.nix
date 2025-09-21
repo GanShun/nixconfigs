@@ -57,7 +57,6 @@
     ipcalc  # it is a calculator for the IPv4/v6 addresses
 
     # misc
-    cowsay
     file
     which
     tree
@@ -78,24 +77,7 @@
     glow # markdown previewer in terminal
     go # Golang
     darktable # Photo Editing
-    #dockutil
 
-    #btop  # replacement of htop/nmon
-    #iotop # io monitoring
-    #iftop # network monitoring
-
-    # system call monitoring
-    # strace # system call monitoring
-    # ltrace # library call monitoring
-    # lsof # list open files
-
-    # system tools
-    # sysstat
-    # lm_sensors # for `sensors` command
-    # ethtool
-    # pciutils # lspci
-    # usbutils # lsusb
-    firefox
   ];
 
   # basic configuration of git, please change to your own
@@ -103,9 +85,11 @@
     enable = true;
     userName = "Gan Shun";
     userEmail = "ganshun@gmail.com";
+    extraConfig = {
+      core.editor = "vim";
+    };
   };
 
-  # basic configuration of git, please change to your own
   programs.vim = {
     enable = true;
     plugins = with pkgs.vimPlugins; [ vim-airline vim-go vim-markdown vim-nix ];
