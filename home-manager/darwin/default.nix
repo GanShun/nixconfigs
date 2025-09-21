@@ -19,4 +19,8 @@
       # }
     ];
   };
+  programs.git.enable = true;
+  programs.git.extraConfig = {
+    core.editor = "vim";
+  };
 }
