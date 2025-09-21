@@ -2,7 +2,6 @@
 
 {
 
-  imports = [ ./dock ];
   # link the configuration file in current directory to the specified location in home directory
   # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
 
@@ -24,7 +23,6 @@
   #   "Xft.dpi" = 172;
   # };
   home.username = "ganshun";
-  home.homeDirectory = "/Users/ganshun";
 
   home.file = {
     ".ssh/config".source = ./sshconfig;
@@ -80,7 +78,7 @@
     glow # markdown previewer in terminal
     go # Golang
     darktable # Photo Editing
-    dockutil
+    #dockutil
 
     #btop  # replacement of htop/nmon
     #iotop # io monitoring
@@ -204,23 +202,6 @@
     };
   };
 
-  local = {
-    dock.username = "${config.home.username}";
-    dock.enable = true;
-    dock.entries = [
-      { path = "/System/Applications/Messages.app/"; }
-      { path = "/System/Applications/Facetime.app/"; }
-      { path = "/Applications/Google Chrome.app/"; }
-      { path = "/Users/ganshun/.nix-profile/Applications/Alacritty.app/"; }
-      { path = "/Users/ganshun/.nix-profile/Applications/Firefox.app/"; }
-      { path = "/Users/ganshun/"; options = "--sort name --view grid --display folder";}
-      # {
-      #   path = "${config.users.users.ganshun.home}/";
-      #   section = "others";
-      #   options = "--sort name --view grid --display folder";
-      # }
-    ];
-  };
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new home Manager release introduces backwards

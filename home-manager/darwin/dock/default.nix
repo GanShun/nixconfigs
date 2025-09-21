@@ -1,6 +1,7 @@
 { config, pkgs, lib, ... }:
 # Original source: https://gist.github.com/antifuchs/10138c4d838a63c0a05e725ccd7bccdd
 
+
 with lib;
 let
   cfg = config.local.dock;
@@ -8,6 +9,23 @@ let
 in
 {
   options = {
+  local = {
+    dock.username = "${config.home.username}";
+    dock.enable = true;
+    dock.entries = [
+      { path = "/System/Applications/Messages.app/"; }
+      { path = "/System/Applications/Facetime.app/"; }
+      { path = "/Applications/Google Chrome.app/"; }
+      { path = "/Users/ganshun/.nix-profile/Applications/Alacritty.app/"; }
+      { path = "/Users/ganshun/.nix-profile/Applications/Firefox.app/"; }
+      { path = "/Users/ganshun/"; options = "--sort name --view grid --display folder";}
+      # {
+      #   path = "${config.users.users.ganshun.home}/";
+      #   section = "others";
+      #   options = "--sort name --view grid --display folder";
+      # }
+    ];
+  };
     local.dock = {
       enable = mkOption {
         description = "Enable dock";
@@ -61,6 +79,9 @@ in
           cfg.entries;
     in
     {
+      home.packages = with pkgs; [
+        dockutil
+      ];
       home.activation = {
         # This activation script runs after the 'git' program is set up
         configDock = lib.hm.dag.entryAfter [ "installPackages" "dockutil" ] ''
