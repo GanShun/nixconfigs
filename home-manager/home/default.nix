@@ -24,10 +24,14 @@
   # };
   home.username = "ganshun";
 
-  home.file = {
-    ".ssh/config".source = ./sshconfig;
-    ".ssh/authorized_keys".source = ./authorized_keys;
-  };
+  # home.file.".ssh/config" = {
+  #   source = ./sshconfig;
+  #   mode = "0600";
+  # };
+  # home.file.".ssh/authorized_keys" = {
+  #   source = ./authorized_keys;
+  #   mode = "0600";
+  # };
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
